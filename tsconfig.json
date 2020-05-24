@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2016",
+    "module": "CommonJS", // 模块化标准
+    "lib": ["ES2017", "DOM"],
+    "outDir": "./dist",
+    "moduleResolution":"Classic",
+    "removeComments": true,
+    "noEmitOnError": true,
+    "esModuleInterop": true
+  },
+  "include": ["./src"], // 编译某一个文件\
+}
