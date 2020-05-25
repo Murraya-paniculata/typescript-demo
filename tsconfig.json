@@ -7,7 +7,9 @@
     "moduleResolution":"Classic",
     "removeComments": true,
     "noEmitOnError": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true
   },
   "include": ["./src"], // 编译某一个文件\
 }
