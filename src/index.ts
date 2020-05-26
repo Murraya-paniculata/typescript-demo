@@ -1,21 +1,45 @@
-class User {
-    name: string
-    constructor(name: string, age:number){
-        this.name = name;
-        this.age = age;
+// 普通写法
+// function take(arr: any[], n:number):any[] {
+//     if (n >= arr.length) {
+//         return arr;
+//     }
+//     const newArr:any[] = [];
+//     for (let index = 0; index < n; index++) {
+//         newArr.push(arr[index])
+//     }
+//     return newArr;
+// }
+
+// const newArr = take([523,24,2,43], 2);
+// console.log(newArr);
+
+function take<T>(arr: T[], n: number): T[] {
+    if (n >= arr.length) {
+        return arr;
     }
-    set age (val: number) {
-        if(val<0){
-            this.age = 0
-        } else {
-            this.age = val
-        }
+    const newArr: T[] = [];
+    for (let index = 0; index < n; index++) {
+        newArr.push(arr[index])
     }
-    get age () {
-        return this.age
-    }
+    return newArr;
 }
 
-const u = new User("aa", 2);
+const newArr = take<number>([523, 24, 2, 43], 2);
 
-console.log(u)
+newArr.map(i => i += 1);
+
+type callback<T> = (n: T, i: number) => boolean;
+
+function filter<T>(arr: T[], callback: callback<T>): T[] {
+    const newArr: T[] = [];
+    arr.forEach((n, i) => {
+        if (callback(n, i)) {
+            newArr.push(n);
+        }
+    });
+    return newArr
+}
+
+const ff = [2, 3, 4, 562, 5223];
+
+console.log(filter(ff, n => n % 2 !== 0));
