@@ -1,8 +1,3 @@
-class User {
-    constructor(name, age) {
-        this.name = name;
-        this.age = age;
-    }
-}
-const u = new User("aa", 2);
-console.log(u);
+"use strict";
+let s44d = 123;
+console.log(123); // 安装@types/node后就不报错了
