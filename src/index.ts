@@ -1,15 +1,50 @@
+type Deck = NormalCard[];
 
-function sum(a: string, b: string): string;
-function sum(a: number, b: number): number;
-function sum (a: string | number, b: string | number): string | number {
-    if (typeof a === 'string' && typeof b === 'string') {
-        return a + b;
-    } else if ( typeof a === 'number' && typeof b === 'number') {
-        return a - b;
-    }
-    throw new Error("a和b必须是相同的类型")
+type Color = "♥️" | "♦️" | "♣️" | "♠️"
+
+type NormalCard = {
+    color: Color;
+    mark: number
 }
 
-let s = sum(11, 3);
+function createDeck(): Deck {
+    let cardList: Deck = [];
+    for(let i = 1; i <= 13; i++) {
+        cardList.push({
+            mark: i,
+            color: '♠️'
+        })
+        cardList.push({
+            mark: i,
+            color: "♣️"
+        })
+        cardList.push({
+            mark: i,
+            color: "♥️"
+        })
+        cardList.push({
+            mark: i,
+            color: "♦️"
+        })
+    }
+    return cardList; 
+}
 
-console.log(s);
+function printDeck(deck: Deck) {
+    deck.forEach(item => {
+        let str = item.color;
+        if (item.mark === 11) {
+            str += 'J';
+        }
+        else if (item.mark === 12) {
+            str += 'Q';
+        } else if(item.mark === 13) {
+            str += 'K';
+        } else {
+            str += item.mark;
+        }
+        console.log(str);
+    })
+}
+
+printDeck(createDeck());
